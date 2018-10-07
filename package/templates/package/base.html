@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="background-color:#000000;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeDHL</title>
+    <link rel="stylesheet" href="{% static "package/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "package/fonts/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="{% static "package/css/styles.min.css" %}">
+</head>
+
+<body style="background-position:center;background-size:auto;background-repeat:no-repeat;background-color:rgb(0,0,0);">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color:rgb(0,0,0);color:rgb(255,255,255);">
+            <div class="container-fluid"><a class="navbar-brand text-white" href="{% url "cms-home" %}" style="font-family:'Work Sans', sans-serif;"><em>FakeDHL</em></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" data-aos="fade" style="color:rgb(0,0,0);"><span class="sr-only">Toggle navigation</span><i class="fa fa-chevron-down" style="color:rgb(255,255,255);font-size:25px;"></i></button>
+                <div class="collapse navbar-collapse justify-content-between" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url "cms-ship" %}" style="background-color:rgba(0,0,0,0.1);color:rgb(255,255,255);"><strong>Ship</strong></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url "cms-track" %}" style="color:rgb(255,255,255);background-color:rgba(0,0,0,0.1);"><strong>Track</strong></a></li>
+                        <li class="dropdown" style="background-color:rgba(0,0,0,0.1);"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:rgb(255,255,255);"><strong>Account</strong></a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Your Account</a><a class="dropdown-item" role="presentation" href="#">Your Orders</a></div>
+                        </li>
+                    </ul><span class="navbar-text actions"> <a href="#" class="login" style="color:rgb(255,255,255);"><strong>Log In</strong></a><a class="btn btn-light action-button" role="button" href="#"><strong>Sign Up</strong></a></span></div>
+    </div>
+    </nav>
+    </div>    
+    {% block content %}
+    {% endblock content %}
+    <script src="{% static "package/js/jquery.min.js" %}"></script>
+    <script src="{% static "package/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="{% static "package/js/script.min.js" %}"></script>
+</body>
+
+</html>
