@@ -1,0 +1,39 @@
+{% extends "package/base.html" %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block content %}
+    <div class="register-photo" style="background-color:rgb(0,0,0);background-image:url(&quot;{% static "package/img/action-asphalt-blur-167733.jpg" %}&quot;);background-size:cover;background-repeat:no-repeat;background-position:center;">
+        <div class="form-container">
+            <form method="post" >
+                {% csrf_token %}
+                <h2 class="text-center"><strong>Track </strong>Order.</h2>
+                {% if data %}
+                <table border="1" align="center" cellpadding="10">
+                        <th>Date</th>
+                        <th>Status</th>
+                        {% for res,i in data.items %}
+                            <tr>
+                                <td>{{ i.date }}</td>
+                                <td>{{ i.shipping_status }}</td>
+                                
+                            </tr>
+                        {% endfor %}
+                </table>
+                {% else %}
+                <h2 class="text-center"><strong>No </strong>progress yet.</h2>
+                {% endif %}
+            </form>
+            <div class="form-container">
+                <form method="post">
+                    {% csrf_token %}
+                    <h2 class="text-center"><strong>Recepient </strong> Details : </h2>
+                    <p><strong>Phone : </strong>{{ r.recepient_phone }}</p>
+                    <p><strong>Name : </strong>{{ r.recepient_name }}</p>
+                    <p><strong>Address : </strong>{{ r.address }}</p>
+                    <p><strong>City : </strong>{{ r.city }}</p>
+                    <p><strong>State : </strong>{{ r.state }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

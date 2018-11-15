@@ -1,0 +1,33 @@
+{% extends "package/base.html" %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block content %}
+{{ phone }}
+    <div class="register-photo" style="background-color:rgb(0,0,0);background-image:url(&quot;{% static "package/img/action-asphalt-blur-167733.jpg" %}&quot;);background-size:cover;background-repeat:no-repeat;background-position:center;">
+        <div class="form-container">
+            <form method="post" >
+                {% csrf_token %}
+                <h2 class="text-center"><strong>All </strong>Users.</h2>
+                {% if data %}
+                <table border="1" align="center" cellpadding="10">
+                        <th>Phone</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Total Orders</th>
+                        {% for res,i in data.items %}
+                            <tr>
+                                {% for j in i %}
+                                <td>{{ j }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                </table>
+                {% else %}
+                <h2 class="text-center"><strong>No </strong>Users.</h2>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock content %}

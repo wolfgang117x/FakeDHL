@@ -1,0 +1,30 @@
+{% extends "package/base.html" %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block content %}
+{{ phone }}
+    <div class="register-photo" style="background-color:rgb(0,0,0);background-image:url(&quot;{% static "package/img/action-asphalt-blur-167733.jpg" %}&quot;);background-size:cover;background-repeat:no-repeat;background-position:center;">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <h2 class="text-center"><strong>Your </strong>account.</h2>
+                <div class="form-group"><a href="{% url "cms-orders" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Your Orders</a></div>
+                <div class="form-group"><a href="{% url "cms-updateaddress" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Update Address</a></div>
+                <div class="form-group"><a href="{% url "cms-updatepass" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Login & Security</a></div>
+                <div class="form-group"><a href="{% url "cms-delacc" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Delete Account</a></div>
+                <div class="form-group"><a href="{% url "cms-logout" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Logout</a></div>
+            </form>
+            <div class="form-container">
+                <form method="post">
+                    {% csrf_token %}
+                    <h2 class="text-center"><strong>Account </strong> Details : </h2>
+                    <p><strong>Phone : </strong>{{ data.customer_phone }}</p>
+                    <p><strong>Name : </strong>{{ data.customer_name }}</p>
+                    <p><strong>Address : </strong>{{ data.customer_address }}</p>
+                    <p><strong>City : </strong>{{ data.customer_city }}</p>
+                    <p><strong>State : </strong>{{ data.customer_state }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

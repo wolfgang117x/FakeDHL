@@ -1,0 +1,18 @@
+{% extends "package/base.html" %}
+{% load render_table from django_tables2 %}
+{% load static %}
+{% block content %}
+{{ phone }}
+    <div class="register-photo" style="background-color:rgb(0,0,0);background-image:url(&quot;{% static "package/img/action-asphalt-blur-167733.jpg" %}&quot;);background-size:cover;background-repeat:no-repeat;background-position:center;">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <h2 class="text-center"><strong>Your </strong>account.</h2>
+                <div class="form-group"><a href="{% url "cms-vieworders" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">View Orders</a></div>
+                <div class="form-group"><a href="{% url "cms-viewusers" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">View Users</a></div>
+                <div class="form-group"><a href="{% url "cms-delusers" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Delete Users</a></div>
+                <div class="form-group"><a href="{% url "cms-updatestatus" %}" class="btn btn-primary btn-block" role="button" style="background-color:rgb(86,198,198);">Update Order Status</a></div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

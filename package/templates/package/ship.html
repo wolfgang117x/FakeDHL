@@ -3,83 +3,59 @@
 {% block content %}
     <div class="register-photo" style="background-color:rgb(0,0,0);background-image:url(&quot;{% static "package/img/action-asphalt-blur-167733.jpg" %}&quot;);background-size:cover;background-repeat:no-repeat;background-position:center;">
         <div class="form-container">
-            <form method="post">
+            <form method="post" action='/ship/addship/'>
                 {% csrf_token %}
                 <h2 class="text-center"><strong>Ship</strong> your package.</h2>
                 <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name" required></div>
                 <div class="form-group"><input class="form-control" type="text" name="phone" placeholder="Phone" required></div>
                 <div class="form-group"><input class="form-control" type="text" name="address" placeholder="Address" required></div>
-                <div class="form-group"><input class="form-control" type="text" name="city" placeholder="City" required></div>
                 <div class="form-group"> <!-- State Button -->
                     <select class="form-control" id="state" name="state">
                         <option value="" selected disabled>State</option>
-                        <option value="AN">Andaman and Nicobar Islands</option>
-                        <option value="AP">Andhra Pradesh</option>
-                        <option value="AR">Arunachal Pradesh</option>
-                        <option value="AS">Assam</option>
-                        <option value="BR">Bihar</option>
-                        <option value="CH">Chandigarh</option>
-                        <option value="CT">Chhattisgarh</option>
-                        <option value="DN">Dadra and Nagar Haveli</option>
-                        <option value="DD">Daman and Diu</option>
-                        <option value="DL">Delhi</option>
-                        <option value="GA">Goa</option>
-                        <option value="GJ">Gujarat</option>
-                        <option value="HR">Haryana</option>
-                        <option value="HP">Himachal Pradesh</option>
-                        <option value="JK">Jammu and Kashmir</option>
-                        <option value="JH">Jharkhand</option>
-                        <option value="KA">Karnataka</option>
-                        <option value="KL">Kerala</option>
-                        <option value="LD">Lakshadweep</option>
-                        <option value="MP">Madhya Pradesh</option>
-                        <option value="MH">Maharashtra</option>
-                        <option value="MN">Manipur</option>
-                        <option value="ML">Meghalaya</option>
-                        <option value="MZ">Mizoram</option>
-                        <option value="NL">Nagaland</option>
-                        <option value="OR">Orissa</option>
-                        <option value="PY">Puducherry</option>
-                        <option value="PB">Punjab</option>
-                        <option value="RJ">Rajasthan</option>
-                        <option value="SK">Sikkim</option>
-                        <option value="TN">Tamil Nadu</option>
-                        <option value="TS">Telangana</option>
-                        <option value="TR">Tripura</option>
-                        <option value="UP">Uttar Pradesh</option>
-                        <option value="UT">Uttarakhand</option>
-                        <option value="WB">West Bengal	</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Orissa">Orissa</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
                     </select>					
                 </div>
+                <div class="form-group"><input class="form-control" type="text" name="city" placeholder="City" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="contents" placeholder="Contents" required></div>
+                <div class="form-group"><input class="form-control" type="number" name="weight" placeholder="Weight in Kilograms"  step="0.01" required></div>
+                <div class="form-group"><input class="form-control" type="number" name="volume" placeholder="Volume in m3" step="0.01" required></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(86,198,198);">Send</button></div></form>
         </div>
     </div>
-    <div class="footer-dark" style="background-color:#000000;background-position:bottom;position: relative;bottom: 0;width: 100%;left: 0;">
-        <footer style="position: relative;bottom: 0;width: 100%;left: 0;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Ship</a></li>
-                            <li><a href="#">Track</a></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="/project/">Project</a></li>
-                            <li><a href="/team/">Team</a></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text">
-                        <h3><em>FakeDHL</em></h3>
-                        <p>FakeDHL is a courier management system designed for shipping and tracking courier packages.<br></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
+    
 {% endblock content %}

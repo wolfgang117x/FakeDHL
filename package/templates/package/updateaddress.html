@@ -3,12 +3,10 @@
 {% block content %}
     <div class="register-photo" style="background-color:rgb(0,0,0);background-image:url(&quot;{% static "package/img/action-asphalt-blur-167733.jpg" %}&quot;);background-size:cover;background-repeat:no-repeat;background-position:center;">
         <div class="form-container">
-            <form method="post" action="/signup/">
+            <form method="post" action="/doupdateaddress/">
                 {% csrf_token %}
-                <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"  required></div>
-                <div class="form-group"><input class="form-control" type="text" name="phone" placeholder="Phone" pattern="[0-9]{10}" required></div>
-                <div class="form-group"><input class="form-control" type="text" name="address" placeholder="Address"  required></div>
+                <h2 class="text-center"><strong>Update</strong> your address.</h2>
+                <div class="form-group"><input class="form-control" type="text" name="address" placeholder="Address" required></div>
                 <div class="form-group"> <!-- State Button -->
                     <select class="form-control" id="state" name="state">
                         <option value="" selected disabled>State</option>
@@ -51,8 +49,7 @@
                     </select>					
                 </div>
                 <div class="form-group"><input class="form-control" type="text" name="city" placeholder="City" required></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" minlength="8" required></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(86,198,198);">Sign Up</button></div><a href="{% url "cms-login" %}" class="already">You already have an account? Login here.</a></form>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(86,198,198);">Update</button></div></form>
         </div>
     </div>
     

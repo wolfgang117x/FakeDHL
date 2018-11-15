@@ -21,15 +21,55 @@
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="{% url "cms-ship" %}" style="background-color:rgba(0,0,0,0.1);color:rgb(255,255,255);"><strong>Ship</strong></a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{% url "cms-track" %}" style="color:rgb(255,255,255);background-color:rgba(0,0,0,0.1);"><strong>Track</strong></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url "cms-god" %}" style="color:rgb(255,255,255);background-color:rgba(0,0,0,0.1);"><strong>Admin</strong></a></li>
                         <li class="dropdown" style="background-color:rgba(0,0,0,0.1);"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color:rgb(255,255,255);"><strong>Account</strong></a>
-                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Your Account</a><a class="dropdown-item" role="presentation" href="#">Your Orders</a></div>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="{% url "cms-acc" %}">Your Account</a><a class="dropdown-item" role="presentation" href="{% url "cms-orders" %}">Your Orders</a></div>
                         </li>
-                    </ul><span class="navbar-text actions"> <a href="#" class="login" style="color:rgb(255,255,255);"><strong>Log In</strong></a><a class="btn btn-light action-button" role="button" href="#"><strong>Sign Up</strong></a></span></div>
+                    </ul><span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="{% url "cms-login" %}"><strong>Login</strong></a></span></div>
     </div>
     </nav>
+    </div>
+    <div class="container">
+        {% if messages %}
+        <div class="col text-center">
+            <div class="text-center">
+                    {% for message in messages%}
+                    <p {% if message.tags == "success" %}class = "alert alert-success" {% else %} class = "alert alert-danger" {% endif %}>{{ message }}</p>
+                    {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </div>    
     {% block content %}
     {% endblock content %}
+    <div class="footer-dark" style="background-color:#000000;background-position:bottom;position: relative;bottom: 0;width: 100%;left: 0;">
+        <footer style="position: relative;bottom: 0;width: 100%;left: 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="{% url "cms-ship" %}">Ship</a></li>
+                            <li><a href="{% url "cms-track" %}">Track</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="/project/">Project</a></li>
+                            <li><a href="/team/">Team</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3><em>FakeDHL</em></h3>
+                        <p>FakeDHL is a courier management system designed for shipping and tracking courier packages.<br></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
     <script src="{% static "package/js/jquery.min.js" %}"></script>
     <script src="{% static "package/bootstrap/js/bootstrap.min.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
