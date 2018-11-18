@@ -7,7 +7,7 @@ Instructions to use:
 
 1. Clone/Download the entire folder to your local machine.
 
-2. Install Python 3.
+2. Install Python 3 and PostgreSQL.
 
 3. Install Python packages django 2.10, bcrypt.
 
