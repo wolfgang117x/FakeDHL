@@ -163,10 +163,12 @@ def addship(request):
         getid = dbc.addship(uid, name, phone, address, city, state, contents, weight, volume)
         if(getid != 1 or getid != 2):
             dbc.con.commit()
-            dbc.close()
             messages.success(request, "Order Successful!")
+            getprice = dbc.getprice(getid)
+            dbc.close()
+            print(getprice)
             id = {}
-            id = {'data': getid}
+            id = {'data': getid, 'price': getprice}
             print(id)
             return render(request, 'package/trackerid.html', id)
         else:

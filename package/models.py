@@ -76,9 +76,9 @@ class dbconnection():
                   query = "INSERT INTO recepient(recepient_phone, recepient_name, address, city, state) values (%s, %s, %s, %s, %s)"
                   self.cur.execute(query, (phone, name, address, city, state))
                   print("ok0")
-                  query = "INSERT INTO package(package_id, package_contents, package_weight, package_volume) values (%s, %s, %s, %s)"
+                  query = "INSERT INTO package(package_id, package_contents, package_volume, package_price, package_weight) values (%s, %s, %s, getprice(%s), %s)"
                   id = random.randint(000000000,999999999)
-                  self.cur.execute(query, (id, contents, weight, volume))
+                  self.cur.execute(query, (id, contents, volume, weight, weight))
                   print("ok1")
                   query = "INSERT INTO package_sender(package_id, customer_phone) values (%s, %s)"
                   self.cur.execute(query, (id, uid))
@@ -137,7 +137,7 @@ class dbconnection():
             return datadict
 
       def recepient_info(self, trackid):
-            query = "SELECT r.recepient_id, r.recepient_name, r.recepient_phone, r.address, r.city, r.state from recepient r, package_receiver pr where pr.package_id=%s and pr.recepient_id = r.recepient_id"
+            query = "SELECT r.recepient_id, r.recepient_name, r.recepient_phone, r.address, r.city, r.state, p.package_price from recepient r, package_receiver pr, package p where pr.package_id=%s and pr.recepient_id = r.recepient_id and pr.package_id=p.package_id"
             self.cur.execute(query, (trackid, ))
             data = self.cur.fetchone()
             return data
@@ -178,6 +178,19 @@ class dbconnection():
                   return 1
             except Exception:
                   print("Others Caught")
+                  return 0
+
+      def getprice(self, trackid):
+            try:
+                  query = "SELECT package_price from package where package_id = %s"
+                  self.cur.execute(query, (trackid, ))
+                  price = self.cur.fetchone()
+                  print(price.package_price)
+                  return price.package_price
+
+            except Exception:
+                  print("Price Exception Caught")
+                  print(Exception)
                   return 0
             
 
