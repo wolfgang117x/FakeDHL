@@ -1,0 +1,5 @@
+Django==2.1
+gunicorn==19.9.0
+psycopg2==2.7.5
+whienoise==4.1.2
+bcrypt==2.17
