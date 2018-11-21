@@ -10,7 +10,7 @@ import random
 class dbconnection():
       def connect(self):
             try:
-                  self.con = psycopg2.connect("dbname=cms user=postgres password=Blr560016")
+                  self.con = psycopg2.connect("host=bdzm3eywimkxj1x3y5qv-postgresql.services.clever-cloud.com dbname=bdzm3eywimkxj1x3y5qv user=uthpua3wbyl5tmqd43x5 password=xJuNZNcLsTFnKI97m77O")
                   self.cur = self.con.cursor(cursor_factory=psycopg2.extras.NamedTupleCursor)
                   print("connected")
             except (Exception, psycopg2.DatabaseError) as error:
