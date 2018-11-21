@@ -23,12 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%759d4=0jm3f7z_(l172-4wiub35eez04!&1w3n5ky(a!h3i-$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "192.168.0.107",
     "localhost",
     "192.168.43.99",
+    "fakedhl.herokuapp.com",
 ]
 
 
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'package.apps.PackageConfig',
-    'django_tables2',
 ]
 
 MIDDLEWARE = [
