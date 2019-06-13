@@ -1,4 +1,7 @@
 # FakeDHL
+
+Visit [FakeDHL](https://fakedhl.herokuapp.com)
+
 FakeDHL is a courier/shipping management system made as part of 5th semester VTU DBMS Mini Project.
 
 It uses the Python Django framework for the web application and PostgreSQL for the database.
