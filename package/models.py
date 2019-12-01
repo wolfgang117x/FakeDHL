@@ -11,9 +11,9 @@ class dbconnection():
       def connect(self):
             try:
                   self.con = psycopg2.connect("host=bkrumvo8yakpyk3ckmen-postgresql.services.clever-cloud.com dbname=bkrumvo8yakpyk3ckmen user=uthpua3wbyl5tmqd43x5 password=xJuNZNcLsTFnKI97m77O")
-                  print(con)
+                  print(self.con)
                   self.cur = self.con.cursor(cursor_factory=psycopg2.extras.NamedTupleCursor)
-                  print(cur)
+                  print(self.cur)
                   print("connected")
             except (Exception, psycopg2.DatabaseError) as error:
                   print(error)
