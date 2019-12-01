@@ -14,6 +14,7 @@ class dbconnection():
                   self.cur = self.con.cursor(cursor_factory=psycopg2.extras.NamedTupleCursor)
                   print("connected")
             except (Exception, psycopg2.DatabaseError) as error:
+                  print(cur)
                   print(error)
 
       def close(self):
